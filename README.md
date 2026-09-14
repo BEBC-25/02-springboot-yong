@@ -386,8 +386,43 @@
 <summary><h3>75일차(2026.09.08 화)</h3></summary>
 
 #### 오전(3시간)
+- [5. REST 요청 검증과 전역 예외 처리](docs/07.spring_rest_api.md#5-rest-요청-검증과-전역-예외-처리)
+  - [5.3 @RestControllerAdvice 기반 전역 예외 제어](docs/07.spring_rest_api.md#53-restcontrolleradvice-기반-전역-예외-제어)
+  - 💻 실습 (Java Stream API 활용 전역 필드 검증 오류 처리): [GlobalRestExceptionHandler.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/exception/GlobalRestExceptionHandler.java)
+- [6. OpenAPI 명세와 Swagger 문서화](docs/07.spring_rest_api.md#6-openapi-명세와-swagger-문서화)
+  - [6.1 OpenAPI 사양과 Swagger 도구](docs/07.spring_rest_api.md#61-openapi-사양과-swagger-도구)
+  - [6.2 Springdoc OpenAPI 라이브러리 환경 구성](docs/07.spring_rest_api.md#62-springdoc-openapi-라이브러리-환경-구성)
+  - 💻 실습 (Springdoc 의존성 및 환경 설정)
+    - [build.gradle](mybatis-sns/build.gradle)
+    - [application.yaml](mybatis-sns/src/main/resources/application.yaml)
+  - [6.3 Swagger 어노테이션 기반 API 명세화](docs/07.spring_rest_api.md#63-swagger-어노테이션-기반-api-명세화)
+  - 💻 실습 (Swagger 명세용 컨트롤러 작성): [PostRestControllerSwagger.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/controller/PostRestControllerSwagger.java)
 
 #### 오후(3시간)
+- [6. OpenAPI 명세와 Swagger 문서화](docs/07.spring_rest_api.md#6-openapi-명세와-swagger-문서화)
+  - [6.3 Swagger 어노테이션 기반 API 명세화](docs/07.spring_rest_api.md#63-swagger-어노테이션-기반-api-명세화)
+  - 💻 실습 (요청 및 응답 DTO 필드 스키마 명세화)
+    - [PostCreateRequest.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/dto/PostCreateRequest.java)
+    - [PostResponse.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/dto/PostResponse.java)
+    - [PostUpdateRequest.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/dto/PostUpdateRequest.java)
+  - [6.4 Swagger UI 대화형 API 테스트](docs/07.spring_rest_api.md#64-swagger-ui-대화형-api-테스트)
+  - 💻 실습 (Swagger UI 대화형 테스트 및 Bruno API 클라이언트 연동): [mybatis-sns/api/OpenAPI definition](mybatis-sns/api/OpenAPI%20definition)
+- [1. 웹 보안 기초와 서블릿 필터 아키텍처](docs/08.spring_security.md#1-웹-보안-기초와-서블릿-필터-아키텍처)
+  - [1.1 웹 애플리케이션 보안과 공통 관심사 분리](docs/08.spring_security.md#11-웹-애플리케이션-보안과-공통-관심사-분리)
+  - [1.2 서블릿 필터의 동작 메커니즘](docs/08.spring_security.md#12-서블릿-필터의-동작-메커니즘)
+- [2. 회원 인증과 비밀번호 암호화](docs/08.spring_security.md#2-회원-인증과-비밀번호-암호화)
+  - [2.1 인증 아키텍처와 내부 동작 메커니즘](docs/08.spring_security.md#21-인증-아키텍처와-내부-동작-메커니즘)
+  - [2.3 UserDetailsService 및 UserDetails 커스텀 구현](docs/08.spring_security.md#23-userdetailsservice-및-userdetails-커스텀-구현)
+  - 💻 실습 (회원 도메인 모델 생성): [Member.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/domain/Member.java)
+  - 💻 실습 (회원 테이블 DDL 및 초기 데이터 구성)
+    - [schema.sql](mybatis-sns/src/main/resources/schema.sql)
+    - [data.sql](mybatis-sns/src/main/resources/data.sql)
+  - 💻 실습 (회원 조회용 MyBatis 매퍼 인터페이스 및 XML 작성)
+    - [MemberMapper.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/mapper/MemberMapper.java)
+    - [MemberMapper.xml](mybatis-sns/src/main/resources/mapper/MemberMapper.xml)
+  - 💻 실습 (이메일 기반 회원 단건 조회 단위 테스트): [MemberMapperTest.java](mybatis-sns/src/test/java/net/likelion/bebc25/sns/mapper/MemberMapperTest.java)
+
+</details>
 
 </details>
 
@@ -399,19 +434,74 @@
 <summary><h3>76일차(2026.09.09 수)</h3></summary>
 
 #### 오전(3시간)
-
+- [1. 웹 보안 기초와 서블릿 필터 아키텍처](docs/08.spring_security.md#1-웹-보안-기초와-서블릿-필터-아키텍처)
+  - [1.3 Spring Security 프레임워크 아키텍처](docs/08.spring_security.md#13-spring-security-프레임워크-아키텍처)
+  - [1.4 서블릿 필터 체인과 Spring Security 연동 메커니즘](docs/08.spring_security.md#14-서블릿-필터-체인과-spring-security-연동-메커니즘)
+  - [1.5 Spring Boot 환경의 보안 설정 구성](docs/08.spring_security.md#15-spring-boot-환경의-보안-설정-구성)
+  - 💻 실습 (Spring Security 의존성 추가 및 SecurityConfig 기본 설정)
+    - [build.gradle](mybatis-sns/build.gradle)
+    - [SecurityConfig.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/config/SecurityConfig.java)
+- [2. 회원 인증과 비밀번호 암호화](docs/08.spring_security.md#2-회원-인증과-비밀번호-암호화)
+  - [2.2 PasswordEncoder와 비밀번호 단방향 암호화](docs/08.spring_security.md#22-passwordencoder와-비밀번호-단방향-암호화)
+  - 💻 실습 (BCrypt PasswordEncoder 설정 및 초기 데이터 암호화 반영)
+    - [PasswordEncoderConfig.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/config/PasswordEncoderConfig.java)
+    - [data.sql](mybatis-sns/src/main/resources/data.sql)
 
 #### 오후(3시간)
+- [2. 회원 인증과 비밀번호 암호화](docs/08.spring_security.md#2-회원-인증과-비밀번호-암호화)
+  - [2.3 UserDetailsService 및 UserDetails 커스텀 구현](docs/08.spring_security.md#23-userdetailsservice-및-userdetails-커스텀-구현)
+  - 💻 실습 (UserDetails 및 UserDetailsService 커스텀 어댑터 구현)
+    - [CustomUserDetails.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/principal/CustomUserDetails.java)
+    - [CustomUserDetailsService.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/service/CustomUserDetailsService.java)
+  - [2.4 인증 객체 참조와 비즈니스 API 연동 실습](docs/08.spring_security.md#24-인증-객체-참조와-비즈니스-api-연동-실습)
+  - 💻 실습 (@AuthenticationPrincipal 기반 회원 정보 조회 API 구현): [MemberRestController.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/controller/MemberRestController.java)
+  - 💻 실습 (게시글 등록 API 인증 객체 연동): [PostRestController.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/controller/PostRestController.java)
 
-    
 </details>
 
 <details>
 <summary><h3>77일차(2026.09.10 목)</h3></summary>
 
 #### 오전(3시간)
+- [3. 요청 인가와 메서드 수준 권한 제어](docs/08.spring_security.md#3-요청-인가와-메서드-수준-권한-제어)
+  - [3.1 요청 인가 규칙 수립](docs/08.spring_security.md#31-요청-인가-규칙-수립)
+  - 💻 실습 (URL 패턴별 접근 인가 규칙 수립): [SecurityConfig.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/config/SecurityConfig.java)
+  - [3.2 메서드 수준 보안](docs/08.spring_security.md#32-메서드-수준-보안)
+  - 💻 실습 (@PreAuthorize 기반 리소스 소유권 검증 및 서비스 비즈니스 보호)
+    - [PostServiceImpl.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/service/PostServiceImpl.java)
+    - [PostRestController.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/controller/PostRestController.java)
+  - [3.3 보안 예외 변환과 커스텀 에러 응답](docs/08.spring_security.md#33-보안-예외-변환과-커스텀-에러-응답)
+  - 💻 실습 (컨트롤러 인가 예외 처리 및 에러 코드 추가)
+    - [ErrorCode.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/exception/ErrorCode.java)
+    - [GlobalRestExceptionHandler.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/exception/GlobalRestExceptionHandler.java)
+  - 💻 실습 (서블릿 필터 계층 커스텀 인증/인가 예외 핸들러 구현)
+    - [CustomAuthenticationEntryPoint.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/handler/CustomAuthenticationEntryPoint.java)
+    - [CustomAccessDeniedHandler.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/handler/CustomAccessDeniedHandler.java)
 
 #### 오후(3시간)
+- [4. JWT 무상태 인증 체인 구축](docs/08.spring_security.md#4-jwt-무상태-인증-체인-구축)
+  - [4.1 세션 기반 인증과 토큰 기반 인증 비교](docs/08.spring_security.md#41-세션-기반-인증과-토큰-기반-인증-비교)
+  - [4.2 JWT 구조와 암호학적 서명 메커니즘](docs/08.spring_security.md#42-jwt-구조와-암호학적-서명-메커니즘)
+  - [4.3 JwtProvider 유틸리티 클래스 구현](docs/08.spring_security.md#43-jwtprovider-유틸리티-클래스-구현)
+  - 💻 실습 (JJWT 의존성 추가 및 JwtProvider 구현과 단위 테스트)
+    - [build.gradle](mybatis-sns/build.gradle)
+    - [application.yaml](mybatis-sns/src/main/resources/application.yaml)
+    - [JwtProvider.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/jwt/JwtProvider.java)
+    - [JwtProviderTest.java](mybatis-sns/src/test/java/net/likelion/bebc25/sns/security/jwt/JwtProviderTest.java)
+  - [4.4 PK 기반 조회를 위한 MemberMapper 및 CustomUserDetailsService 확장](docs/08.spring_security.md#44-pk-기반-조회를-위한-membermapper-및-customuserdetailsservice-확장)
+  - 💻 실습 (PK 기반 단건 조회 매퍼 및 서비스 메서드 확장)
+    - [MemberMapper.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/mapper/MemberMapper.java)
+    - [MemberMapper.xml](mybatis-sns/src/main/resources/mapper/MemberMapper.xml)
+    - [CustomUserDetailsService.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/service/CustomUserDetailsService.java)
+  - [4.5 커스텀 JWT 인증 필터 구현과 필터 체인 결합](docs/08.spring_security.md#45-커스텀-jwt-인증-필터-구현과-필터-체인-결합)
+  - 💻 실습 (OncePerRequestFilter 기반 JwtAuthenticationFilter 구현 및 체인 등록)
+    - [JwtAuthenticationFilter.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/jwt/JwtAuthenticationFilter.java)
+    - [SecurityConfig.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/config/SecurityConfig.java)
+  - [4.6 무상태 JWT 로그인 API 구현 및 엔드포인트 검증](docs/08.spring_security.md#46-무상태-jwt-로그인-api-구현-및-엔드포인트-검증)
+  - 💻 실습 (무상태 로그인 API 컨트롤러 및 DTO 구현)
+    - [LoginRequest.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/dto/LoginRequest.java)
+    - [TokenResponse.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/dto/TokenResponse.java)
+    - [AuthRestController.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/controller/AuthRestController.java)
 
 </details>
 
@@ -419,8 +509,38 @@
 <summary><h3>78일차(2026.09.11 금)</h3></summary>
 
 #### 오전(3시간)
+- [4. JWT 무상태 인증 체인 구축](docs/08.spring_security.md#4-jwt-무상태-인증-체인-구축)
+  - [4.7 Access Token과 Refresh Token 이중화 운영 전략](docs/08.spring_security.md#47-access-token과-refresh-token-이중화-운영-전략)
+  - [4.8 AuthRestController 토큰 갱신 엔드포인트 구현 (POST /api/v1/auth/refresh)](docs/08.spring_security.md#48-authrestcontroller-토큰-갱신-엔드포인트-구현-post-apiv1authrefresh)
+  - 💻 실습 (Refresh Token 요청 DTO 및 토큰 갱신 엔드포인트 구현)
+    - [RefreshTokenRequest.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/dto/RefreshTokenRequest.java)
+    - [AuthRestController.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/controller/AuthRestController.java)
+    - [GlobalRestExceptionHandler.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/exception/GlobalRestExceptionHandler.java)
+  - [4.9 토큰 갱신 파이프라인 검증 (Bruno)](docs/08.spring_security.md#49-토큰-갱신-파이프라인-검증-bruno)
+  - 💻 실습 (Bruno 토큰 재발급 및 만료/변조 차단 파이프라인 검증): [mybatis-sns/api/OpenAPI definition](mybatis-sns/api/OpenAPI%20definition)
+- [5. OAuth 2.0 소셜 로그인 연동](docs/08.spring_security.md#5-oauth-20-소셜-로그인-연동)
+  - [5.1 OAuth(Open Authorization) 2.0 프로토콜](docs/08.spring_security.md#51-oauthopen-authorization-20-프로토콜)
+  - [5.2 build.gradle 의존성 추가 (build.gradle)](docs/08.spring_security.md#52-buildgradle-의존성-추가-buildgradle)
+  - 💻 실습 (OAuth 2.0 Client 의존성 추가): [build.gradle](mybatis-sns/build.gradle)
 
 #### 오후(3시간)
+- [5. OAuth 2.0 소셜 로그인 연동](docs/08.spring_security.md#5-oauth-20-소셜-로그인-연동)
+  - [5.3 구글 OAuth 2.0 소셜 로그인 연동 (기본 공급자)](docs/08.spring_security.md#53-구글-oauth-20-소셜-로그인-연동-기본-공급자)
+  - 💻 실습 (신규 소셜 회원 DB 저장을 위한 매퍼 확장)
+    - [MemberMapper.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/mapper/MemberMapper.java)
+    - [MemberMapper.xml](mybatis-sns/src/main/resources/mapper/MemberMapper.xml)
+  - 💻 실습 (OAuth2User 다중 구현 및 속성 확장): [CustomUserDetails.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/principal/CustomUserDetails.java)
+  - 💻 실습 (OAuth2User 공급자 파싱 및 자동 가입 서비스 구현): [CustomOAuth2UserService.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/oauth/CustomOAuth2UserService.java)
+  - 💻 실습 (소셜 인증 성공 핸들러 및 자체 JWT 발급 연동): [OAuth2SuccessHandler.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/handler/OAuth2SuccessHandler.java)
+  - [5.4 카카오 OAuth 2.0 확장 및 커스텀 공급자 연동 (서드파티 확장)](docs/08.spring_security.md#54-카카오-oauth-20-확장-및-커스텀-공급자-연동-서드파티-확장)
+  - 💻 실습 (소셜 로그인 테스트 및 콜백 정적 페이지 작성)
+    - [login.html](mybatis-sns/src/main/resources/static/login.html)
+    - [callback.html](mybatis-sns/src/main/resources/static/oauth/callback.html)
+- [6. 커스텀 보안 필터 설계와 필터 체인 제어](docs/08.spring_security.md#6-커스텀-보안-필터-설계와-필터-체인-제어)
+  - [6.1 커스텀 필터 체인 설계 및 순서 제어](docs/08.spring_security.md#61-커스텀-필터-체인-설계-및-순서-제어)
+  - 💻 실습 (OncePerRequestFilter 기반 요청 감사 로깅 필터 구현 및 체인 등록)
+    - [RequestAuditFilter.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/filter/RequestAuditFilter.java)
+    - [SecurityConfig.java](mybatis-sns/src/main/java/net/likelion/bebc25/sns/security/config/SecurityConfig.java)
 
 </details>
 
