@@ -5,8 +5,8 @@
 - [2. 스프링 부트 시작하기](docs/02.spring_boot.md)
 - [3. Spring MVC 웹 개발 기초](docs/03.spring_web_mvc.md)
 - [4. Spring 데이터 접근 기술과 데이터베이스 모델링](docs/04.spring_database.md)
-- [5. MyBatis와 트랜잭션 관리](docs/05.mybatis.md)
-- [6. Spring Data JPA]
+- [5. MyBatis와 트랜잭션 관리](docs/05.spring_mybatis.md)
+- [6. Spring Data JPA 기본 - 기본 원리와 엔티티 연관관계](docs/06.spring_data_jpa_core.md)
 - [7. Spring REST API](docs/07.spring_rest_api.md)
 - [8. Spring Security](docs/08.spring_security.md)
 
@@ -275,8 +275,8 @@
   - [3.4 데이터베이스 실행 계획 확인](docs/04.spring_database.md#34-데이터베이스-실행-계획-확인)
   - [3.5 페이징 처리 기법](docs/04.spring_database.md#35-페이징-처리-기법)
   - 💻 실습 (인덱스 생성·성능 측정 및 실행 계획 분석): [spring-data/query/index.sql](spring-data/query/index.sql)
-- [1. MyBatis](docs/05.mybatis.md#1-mybatis)
-  - [1.1 MyBatis 개요와 SQL 매퍼 패러다임](docs/05.mybatis.md#11-mybatis-개요와-sql-매퍼-패러다임)
+- [1. MyBatis](docs/05.spring_mybatis.md#1-mybatis)
+  - [1.1 MyBatis 개요와 SQL 매퍼 패러다임](docs/05.spring_mybatis.md#11-mybatis-개요와-sql-매퍼-패러다임)
 
 </details>
 
@@ -290,44 +290,44 @@
 <summary><h3>71일차(2026.09.02 수)</h3></summary>
 
 #### 오전(3시간)
-- [1. MyBatis](docs/05.mybatis.md#1-mybatis)
-  - [1.2 MyBatis 핵심 구성 요소와 동작 원리](docs/05.mybatis.md#12-mybatis-핵심-구성-요소와-동작-원리)
-  - [1.3 MyBatis 빌드 의존성 및 환경 설정](docs/05.mybatis.md#13-mybatis-빌드-의존성-및-환경-설정)
-  - [1.4 Mapper 인터페이스와 매개변수 바인딩](docs/05.mybatis.md#14-mapper-인터페이스와-매개변수-바인딩)
-- [2. MyBatis 실습: SNS 데이터 계층 구현](docs/05.mybatis.md#2-mybatis-실습-sns-데이터-계층-구현)
-  - [2.1 프로젝트 환경 구성 및 설정](docs/05.mybatis.md#21-프로젝트-환경-구성-및-설정)
-  - [2.2 기본 CRUD 기능 구현 및 단위 테스트](docs/05.mybatis.md#22-기본-crud-기능-구현-및-단위-테스트)
+- [1. MyBatis](docs/05.spring_mybatis.md#1-mybatis)
+  - [1.2 MyBatis 핵심 구성 요소와 동작 원리](docs/05.spring_mybatis.md#12-mybatis-핵심-구성-요소와-동작-원리)
+  - [1.3 MyBatis 빌드 의존성 및 환경 설정](docs/05.spring_mybatis.md#13-mybatis-빌드-의존성-및-환경-설정)
+  - [1.4 Mapper 인터페이스와 매개변수 바인딩](docs/05.spring_mybatis.md#14-mapper-인터페이스와-매개변수-바인딩)
+- [2. MyBatis 실습: SNS 데이터 계층 구현](docs/05.spring_mybatis.md#2-mybatis-실습-sns-데이터-계층-구현)
+  - [2.1 프로젝트 환경 구성 및 설정](docs/05.spring_mybatis.md#21-프로젝트-환경-구성-및-설정)
+  - [2.2 기본 CRUD 기능 구현 및 단위 테스트](docs/05.spring_mybatis.md#22-기본-crud-기능-구현-및-단위-테스트)
   - 💻 실습 (MyBatis SNS 프로젝트 설정 및 기본 CRUD 단위 테스트): [mybatis-sns](mybatis-sns)
 
 #### 오후(3시간)
-- [1. MyBatis](docs/05.mybatis.md#1-mybatis)
-  - [1.5 ResultMap과 복합 객체 조인 매핑](docs/05.mybatis.md#15-resultmap과-복합-객체-조인-매핑)
-  - [1.6 동적 SQL 제어와 공통 쿼리 모듈화](docs/05.mybatis.md#16-동적-sql-제어와-공통-쿼리-모듈화)
-- [2. MyBatis 실습: SNS 데이터 계층 구현](docs/05.mybatis.md#2-mybatis-실습-sns-데이터-계층-구현)
-  - [2.3 ResultMap 복합 조인 상세 조회 구현 및 단위 테스트](docs/05.mybatis.md#23-resultmap-복합-조인-상세-조회-구현-및-단위-테스트)
-  - [2.4 동적 SQL 검색 및 일괄 삭제 구현 및 단위 테스트](docs/05.mybatis.md#24-동적-sql-검색-및-일괄-삭제-구현-및-단위-테스트)
-  - 💻 실습 (ResultMap 1:1/1:N 복합 조인 및 동적 SQL 단위 테스트): [mybatis-sns/src/test/java/net/likelion/bebc25/sns/mapper/PostMapperTest.java](mybatis-sns/src/test/java/net/likelion/bebc25/sns/mapper/PostMapperTest.java)
-    
+- [1. MyBatis](docs/05.spring_mybatis.md#1-mybatis)
+  - [1.5 ResultMap과 복합 객체 조인 매핑](docs/05.spring_mybatis.md#15-resultmap과-복합-객체-조인-매핑)
+  - [1.6 동적 SQL 제어와 공통 쿼리 모듈화](docs/05.spring_mybatis.md#16-동적-sql-제어와-공통-쿼리-모듈화)
+- [2. MyBatis 실습: SNS 데이터 계층 구현](docs/05.spring_mybatis.md#2-mybatis-실습-sns-데이터-계층-구현)
+  - [2.3 ResultMap 복합 조인 상세 조회 구현 및 단위 테스트](docs/05.spring_mybatis.md#23-resultmap-복합-조인-상세-조회-구현-및-단위-테스트)
+  - [2.4 동적 SQL 검색 및 일괄 삭제 구현 및 단위 테스트](docs/05.spring_mybatis.md#24-동적-sql-검색-및-일괄-삭제-구현-및-단위-테스트)
+  - 💻 실습 (ResultMap 1:1/1:N 복합 조인 및 동적 SQL 단위 테스트): [mybatis-sns](mybatis-sns)
+
 </details>
 
 <details>
 <summary><h3>72일차(2026.09.03 목)</h3></summary>
 
 #### 오전(3시간)
-- [3. 스프링 선언적 트랜잭션](docs/05.mybatis.md#3-스프링-선언적-트랜잭션)
-  - [3.1 스프링 트랜잭션 추상화](docs/05.mybatis.md#31-스프링-트랜잭션-추상화)
-  - [3.2 @Transactional 선언과 AOP 프록시 동작 메커니즘](docs/05.mybatis.md#32-transactional-선언과-aop-프록시-동작-메커니즘)
-  - [3.3 트랜잭션 전파 속성과 격리 수준](docs/05.mybatis.md#33-트랜잭션-전파-속성과-격리-수준)
-  - [3.4 @Transactional 실무 사용법과 권장 설정](docs/05.mybatis.md#34-transactional-실무-사용법과-권장-설정)
+- [3. 스프링 선언적 트랜잭션](docs/05.spring_mybatis.md#3-스프링-선언적-트랜잭션)
+  - [3.1 스프링 트랜잭션 추상화](docs/05.spring_mybatis.md#31-스프링-트랜잭션-추상화)
+  - [3.2 @Transactional 선언과 AOP 프록시 동작 메커니즘](docs/05.spring_mybatis.md#32-transactional-선언과-aop-프록시-동작-메커니즘)
+  - [3.3 트랜잭션 전파 속성과 격리 수준](docs/05.spring_mybatis.md#33-트랜잭션-전파-속성과-격리-수준)
+  - [3.4 @Transactional 실무 사용법과 권장 설정](docs/05.spring_mybatis.md#34-transactional-실무-사용법과-권장-설정)
 
 #### 오후(3시간)
-- [4. 서비스 계층 선언적 트랜잭션 실습](docs/05.mybatis.md#4-서비스-계층-선언적-트랜잭션-실습)
-  - [4.1 트랜잭션 적용 시나리오: 좋아요 토글](docs/05.mybatis.md#41-트랜잭션-적용-시나리오-좋아요-토글)
-  - [4.2 매퍼 설계 원칙: 도메인 관점과 테이블 책임 분리](docs/05.mybatis.md#42-매퍼-설계-원칙-도메인-관점과-테이블-책임-분리)
-  - [4.3 PostLikeMapper 인터페이스 및 XML 구현](docs/05.mybatis.md#43-postlikemapper-인터페이스-및-xml-구현)
-  - [4.4 PostMapper 인터페이스 및 XML 메서드 추가](docs/05.mybatis.md#44-postmapper-인터페이스-및-xml-메서드-추가)
-  - [4.5 서비스 인터페이스 및 구현 클래스 작성](docs/05.mybatis.md#45-서비스-인터페이스-및-구현-클래스-작성)
-  - [4.6 트랜잭션 롤백 테스트 및 무결성 검증](docs/05.mybatis.md#46-트랜잭션-롤백-테스트-및-무결성-검증)
+- [4. 서비스 계층 선언적 트랜잭션 실습](docs/05.spring_mybatis.md#4-서비스-계층-선언적-트랜잭션-실습)
+  - [4.1 트랜잭션 적용 시나리오: 좋아요 토글](docs/05.spring_mybatis.md#41-트랜잭션-적용-시나리오-좋아요-토글)
+  - [4.2 매퍼 설계 원칙: 도메인 관점과 테이블 책임 분리](docs/05.spring_mybatis.md#42-매퍼-설계-원칙-도메인-관점과-테이블-책임-분리)
+  - [4.3 PostLikeMapper 인터페이스 및 XML 구현](docs/05.spring_mybatis.md#43-postlikemapper-인터페이스-및-xml-구현)
+  - [4.4 PostMapper 인터페이스 및 XML 메서드 추가](docs/05.spring_mybatis.md#44-postmapper-인터페이스-및-xml-메서드-추가)
+  - [4.5 서비스 인터페이스 및 구현 클래스 작성](docs/05.spring_mybatis.md#45-서비스-인터페이스-및-구현-클래스-작성)
+  - [4.6 트랜잭션 롤백 테스트 및 무결성 검증](docs/05.spring_mybatis.md#46-트랜잭션-롤백-테스트-및-무결성-검증)
   - 💻 실습 (서비스 계층 선언적 트랜잭션 실습): [mybatis-sns](mybatis-sns)
 
 </details>
@@ -336,11 +336,11 @@
 <summary><h3>73일차(2026.09.04 금)</h3></summary>
 
 #### 오전(3시간)
-- [5. 게시글 비즈니스 서비스 계층 구현](docs/05.mybatis.md#5-게시글-비즈니스-서비스-계층-구현)
-  - [5.1 게시글 서비스 인터페이스 정의](docs/05.mybatis.md#51-게시글-서비스-인터페이스-정의)
-  - [5.2 게시글 수정 요청 DTO 정의](docs/05.mybatis.md#52-게시글-수정-요청-dto-정의)
-  - [5.3 서비스 구현 클래스 및 비즈니스 예외 처리](docs/05.mybatis.md#53-서비스-구현-클래스-및-비즈니스-예외-처리)
-  - [5.4 게시글 서비스 통합 테스트 작성](docs/05.mybatis.md#54-게시글-서비스-통합-테스트-작성)
+- [5. 게시글 비즈니스 서비스 계층 구현](docs/05.spring_mybatis.md#5-게시글-비즈니스-서비스-계층-구현)
+  - [5.1 게시글 서비스 인터페이스 정의](docs/05.spring_mybatis.md#51-게시글-서비스-인터페이스-정의)
+  - [5.2 게시글 수정 요청 DTO 정의](docs/05.spring_mybatis.md#52-게시글-수정-요청-dto-정의)
+  - [5.3 서비스 구현 클래스 및 비즈니스 예외 처리](docs/05.spring_mybatis.md#53-서비스-구현-클래스-및-비즈니스-예외-처리)
+  - [5.4 게시글 서비스 통합 테스트 작성](docs/05.spring_mybatis.md#54-게시글-서비스-통합-테스트-작성)
   - 💻 실습 (게시글 서비스 계층 구현 및 통합 테스트): [mybatis-sns](mybatis-sns)
 - [1. 웹 렌더링 패러다임의 변화](docs/07.spring_rest_api.md#1-웹-렌더링-패러다임의-변화)
   - [1.1 SSR과 CSR의 동작 메커니즘](docs/07.spring_rest_api.md#11-ssr과-csr의-동작-메커니즘)
@@ -548,8 +548,31 @@
 <summary><h3>79일차(2026.09.14 월)</h3></summary>
 
 #### 오전(3시간)
+- [1. mybatis-sns 컨테이너라이징 및 로컬 서비스 검증](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#1-mybatis-sns-컨테이너라이징-및-로컬-서비스-검증)
+  - [1.1 컨테이너라이징 사전 작업 (환경 변수 및 시크릿 분리)](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#11-컨테이너라이징-사전-작업-환경-변수-및-시크릿-분리)
+  - [1.2 Dockerfile 최적화 및 보안 설계 원칙](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#12-dockerfile-최적화-및-보안-설계-원칙)
+  - [1.3 경량 멀티 스테이지 Dockerfile 작성](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#13-경량-멀티-스테이지-dockerfile-작성)
+  - [1.4 Docker Compose 기반 mybatis-sns-app 및 mybatis-sns-db 로컬 통합 배포](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#14-docker-compose-기반-mybatis-sns-app-및-mybatis-sns-db-로컬-통합-배포)
+  - 💻 실습 (배포용 독립 저장소 분리 및 환경 변수 외부화)
+    - [.env.example](https://github.com/BEBC-25/11-mybatis-sns/blob/main/.env.example)
+    - [.gitignore](https://github.com/BEBC-25/11-mybatis-sns/blob/main/.gitignore)
+  - 💻 실습 (멀티 스테이지 빌드 Dockerfile 작성): [Dockerfile](https://github.com/BEBC-25/11-mybatis-sns/blob/main/Dockerfile)
+  - 💻 실습 (Docker Compose 다중 컨테이너 구동 설정): [docker-compose.yaml](https://github.com/BEBC-25/11-mybatis-sns/blob/main/docker-compose.yaml)
+- [2. Docker Hub 푸시 및 AWS EC2 배포 실습](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#2-docker-hub-푸시-및-aws-ec2-배포-실습)
+  - [2.1 Docker Hub 원격 레지스트리 준비 및 로컬 로그인](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#21-docker-hub-원격-레지스트리-준비-및-로컬-로그인)
+  - [2.2 mybatis-sns 이미지 빌드, 태깅 및 Docker Hub 푸시](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#22-mybatis-sns-이미지-빌드-태깅-및-docker-hub-푸시)
+  - [2.5 EC2 인스턴스 원격 SSH 접속](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#25-ec2-인스턴스-원격-ssh-접속)
+  - [2.7 EC2 서버 환경 변수(.env) 및 Docker Compose 설정 파일 배치](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#27-ec2-서버-환경-변수env-및-docker-compose-설정-파일-배치)
+  - [2.8 EC2 상에서 Docker Compose 서비스 기동 및 동작 검증](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#28-ec2-상에서-docker-compose-서비스-기동-및-동작-검증)
+  - [2.9 소스 코드 변경에 따른 재배포 흐름과 CI/CD 전환 필요성](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/01.ec2_docker_deploy.md#29-소스-코드-변경에-따른-재배포-흐름과-cicd-전환-필요성)
 
 #### 오후(3시간)
+- [1. GitHub Actions 기반의 지속적 통합(CI)](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#1-github-actions-기반의-지속적-통합ci)
+  - [1.1 지속적 통합(CI) 정의 및 CI/CD 도구 생태계](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#11-지속적-통합ci-정의-및-cicd-도구-생태계)
+  - [1.2 GitHub Actions 아키텍처와 워크플로우 기본 구조](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#12-github-actions-아키텍처와-워크플로우-기본-구조)
+  - [1.3 Gradle 자동 빌드 및 컴파일 무결성 검증 워크플로우 구성](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#13-gradle-자동-빌드-및-컴파일-무결성-검증-워크플로우-구성)
+  - 💻 실습 (지속적 통합 CI 기본 워크플로우 작성): [01_ci.yaml](https://github.com/BEBC-25/11-mybatis-sns/blob/main/.github/workflows/01_ci.yaml)
+  - 💻 실습 (의도적 컴파일 에러 유발 및 CI 검증 실패와 복구 테스트): [11-mybatis-sns](https://github.com/BEBC-25/11-mybatis-sns)
 
 </details>
 
@@ -557,8 +580,36 @@
 <summary><h3>80일차(2026.09.15 화)</h3></summary>
 
 #### 오전(3시간)
+- [4. JWT 무상태 인증 체인 구축](docs/08.spring_security.md#4-jwt-무상태-인증-체인-구축)
+  - [4.7 Access Token과 Refresh Token 이중화 운영 전략](docs/08.spring_security.md#47-access-token과-refresh-token-이중화-운영-전략)
+- [4. GitHub Actions Services 기반 데이터베이스 연동 테스트](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#4-github-actions-services-기반-데이터베이스-연동-테스트)
+  - [4.1 Services 컨테이너 동작 메커니즘 및 필요성](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#41-services-컨테이너-동작-메커니즘-및-필요성)
+  - [4.2 GitHub Secrets 기반 데이터베이스 보안 환경 변수 관리](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#42-github-secrets-기반-데이터베이스-보안-환경-변수-관리)
+  - [4.3 MySQL 9.7 Services 연동 및 테스트 워크플로우 구축](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#43-mysql-97-services-연동-및-테스트-워크플로우-구축)
+  - 💻 실습 (Spring Security Test 단위 테스트 검증 - @WithMockUser, @WithUserDetails): [PostServiceTest.java](https://github.com/BEBC-25/11-mybatis-sns/blob/main/src/test/java/net/likelion/bebc25/sns/service/PostServiceTest.java)
+  - 💻 실습 (MySQL 서비스 컨테이너 연동 자동 테스트 워크플로우 작성): [04_ci_test.yaml](https://github.com/BEBC-25/11-mybatis-sns/blob/main/.github/workflows/04_ci_test.yaml)
 
 #### 오후(3시간)
+- [2. GitHub Actions 기반의 지속적 제공(Continuous Delivery)](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#2-github-actions-기반의-지속적-제공continuous-delivery)
+  - [2.1 지속적 제공(Delivery) 정의 및 도커 레지스트리 아키텍처](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#21-지속적-제공delivery-정의-및-도커-레지스트리-아키텍처)
+  - [2.2 Docker Hub 연동 및 이미지 빌드/푸시 파이프라인 구축](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#22-docker-hub-연동-및-이미지-빌드푸시-파이프라인-구축)
+  - [2.3 이미지 태그 전략 및 Docker Hub 아티팩트 검증](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#23-이미지-태그-전략-및-docker-hub-아티팩트-검증)
+  - 💻 실습 (Docker Hub 이미지 자동 빌드 및 푸시 워크플로우 작성): [02_delivery.yaml](https://github.com/BEBC-25/11-mybatis-sns/blob/main/.github/workflows/02_delivery.yaml)
+- [3. AWS EC2 기반의 지속적 배포(Continuous Deployment)](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#3-aws-ec2-기반의-지속적-배포continuous-deployment)
+  - [3.1 지속적 배포(Deployment) 정의 및 클라우드 배포 전략](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#31-지속적-배포deployment-정의-및-클라우드-배포-전략)
+  - [3.2 GitHub Secrets 기반 EC2 보안 환경 변수 관리](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#32-github-secrets-기반-ec2-보안-환경-변수-관리)
+  - [3.3 SSH 및 Docker Compose 기반 원격 자동 배포 연동 및 파이프라인 완성](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#33-ssh-및-docker-compose-기반-원격-자동-배포-연동-및-파이프라인-완성)
+  - [3.4 배포 상태 최종 검증](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#34-배포-상태-최종-검증)
+  - 💻 실습 (AWS EC2 원격 SSH 자동 배포 워크플로우 작성): [03_deployment.yaml](https://github.com/BEBC-25/11-mybatis-sns/blob/main/.github/workflows/03_deployment.yaml)
+- [5. 완전 자동화 CI/CD 통합 파이프라인 구축](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#5-완전-자동화-cicd-통합-파이프라인-구축)
+  - [5.1 파이프라인 의존성 제어 아키텍처 (needs)](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#51-파이프라인-의존성-제어-아키텍처-needs)
+  - [5.2 mybatis-sns 통합 CI/CD 파이프라인 완성](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#52-mybatis-sns-통합-cicd-파이프라인-완성)
+  - [5.3 End-to-End 배포 파이프라인 동작 검증](https://github.com/BEBC-25/03-devops-ins/blob/main/docs/03.cicd/02.ci_cd_github_actions.md#53-end-to-end-배포-파이프라인-동작-검증)
+  - 💻 실습 (통합 CI/CD End-to-End 파이프라인 작성): [05_cicd_full.yaml](https://github.com/BEBC-25/11-mybatis-sns/blob/main/.github/workflows/05_cicd_full.yaml)
+  - 💻 실습 (Git Flow 브랜치 보호 규칙 설정 및 PR 기반 자동 배포 검증): [11-mybatis-sns](https://github.com/BEBC-25/11-mybatis-sns)
+- 프론트엔드 개발 환경 개요 및 AI 코딩 에이전트
+  - Vite 기반 React + TypeScript 프로젝트 환경 개요
+  - AI 코딩 에이전트의 역할과 개발자의 코드 검증 책임
 
 </details>
 
@@ -572,11 +623,45 @@
 <summary><h3>81일차(2026.09.16 수)</h3></summary>
 
 #### 오전(3시간)
-
+- [1. 웹 개발과 React](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#1-웹-개발과-react)
+  - [1.1 SPA와 React 도입 배경](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#11-spa와-react-도입-배경)
+  - [1.2 React 핵심 특성](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#12-react-핵심-특성)
+- [2. React 개발 환경 구축 및 라우팅 기초](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#2-react-개발-환경-구축-및-라우팅-기초)
+  - [2.1 프론트엔드 빌드 도구](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#21-프론트엔드-빌드-도구)
+  - [2.2 Vite 프로젝트 생성 및 구동](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#22-vite-프로젝트-생성-및-구동)
+  - [2.4 첫 번째 React 컴포넌트 작성](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#24-첫-번째-react-컴포넌트-작성)
+  - 💻 실습 (첫 번째 React 컴포넌트 작성): [00_Postit.tsx](https://github.com/BEBC-25/04-frontend-yong/blob/main/samples/pages/00_Postit.tsx)
+- [3. JSX 문법 및 작성 규칙](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#3-jsx-문법-및-작성-규칙)
+  - [3.1 JSX 정의 및 변환 원리](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#31-jsx-정의-및-변환-원리)
+  - [3.2 JSX 핵심 문법 규칙](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#32-jsx-핵심-문법-규칙)
+  - 💻 실습 (단일 JSX 기반 SNS 피드 마크업 작성): [02_JsxSns.tsx](https://github.com/BEBC-25/04-frontend-yong/blob/main/samples/pages/02_JsxSns.tsx)
 
 #### 오후(3시간)
+- [4. 컴포넌트와 속성(Props)](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#4-컴포넌트와-속성props)
+  - [4.1 컴포넌트 기반 아키텍처](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#41-컴포넌트-기반-아키텍처)
+  - [4.2 Props 데이터 전달 및 비구조화 할당](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#42-props-데이터-전달-및-비구조화-할당)
+  - 💻 실습 (컴포넌트 모듈화 및 Props 데이터 전달)
+    - [PostCard.tsx](https://github.com/BEBC-25/04-frontend-yong/blob/main/samples/pages/03_PropsSns/PostCard.tsx)
+    - [index.tsx](https://github.com/BEBC-25/04-frontend-yong/blob/main/samples/pages/03_PropsSns/index.tsx)
+- [5. 이벤트 처리와 상태 관리(State)](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#5-이벤트-처리와-상태-관리state)
+  - [5.1 React 이벤트 처리 메커니즘](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#51-react-이벤트-처리-메커니즘)
+  - [5.2 useState 훅을 활용한 상태 관리](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#52-usestate-훅을-활용한-상태-관리)
+  - 💻 실습 (useState 활용 게시글 좋아요 인터랙션 및 상태 제어)
+    - [PostCard.tsx](https://github.com/BEBC-25/04-frontend-yong/blob/main/samples/pages/04_StateSns/PostCard.tsx)
+    - [index.tsx](https://github.com/BEBC-25/04-frontend-yong/blob/main/samples/pages/04_StateSns/index.tsx)
+- [2.5 화면 전환을 위한 React Router 도입](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#25-화면-전환을-위한-react-router-도입)
+- [6. 백엔드 API 연동](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#6-백엔드-api-연동)
+  - [6.1 useEffect 훅 동작 원리](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#61-useeffect-훅-동작-원리)
+  - [6.2 fetch API를 활용한 비동기 통신](https://github.com/BEBC-25/04-frontend-yong/blob/main/docs/01.react.md#62-fetch-api를-활용한-비동기-통신)
+  - 💻 실습 (Vite Proxy 설정 및 MyBatis SNS 백엔드 API 연동)
+    - [vite.config.ts](https://github.com/BEBC-25/04-frontend-yong/blob/main/vite.config.ts)
+    - [PostCard.tsx](https://github.com/BEBC-25/04-frontend-yong/blob/main/samples/pages/05_ApiSns/PostCard.tsx)
+    - [index.tsx](https://github.com/BEBC-25/04-frontend-yong/blob/main/samples/pages/05_ApiSns/index.tsx)
+- Cursor AI 프로젝트 규칙 설정 및 바이브코딩
+  - .cursor/rules 설정 파일 구성 및 전역 코딩 표준 강제화
+  - 바이브코딩 기반 UI 프로토타이핑 및 MyBatis SNS 웹 구현
+  - 💻 실습 (Cursor AI 규칙 설정 파일 구성 및 바이브코딩 연동): [.cursor/rules](https://github.com/BEBC-25/04-frontend-yong/blob/main/.cursor/rules)
 
-    
 </details>
 
 <details>
@@ -626,7 +711,122 @@
 
 </details>
 
+<details>
+
+<summary><h2>18주차 - 2026.09.23(수) ~ 2026.10.01(목)</h2></summary>
+
+<details>
+<summary><h3>86일차(2026.09.23 수)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트
+
+</details>
+
+<details>
+<summary><h3>87일차(2026.09.28 월)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트
+
+</details>
+
+<details>
+<summary><h3>88일차(2026.09.29 화)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트
+
+</details>
+
+<details>
+<summary><h3>89일차(2026.09.30 수)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트
+
+</details>
+
+<details>
+<summary><h3>91일차(2026.10.01 목)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트
+
+</details>
+
+</details>
+
+<details>
+
+<summary><h2>19주차 - 2026.10.02(금) ~ 2026.10.12(월)</h2></summary>
+
+<details>
+<summary><h3>91일차(2026.10.02 금)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트 발표
+
+</details>
+
+<details>
+<summary><h3>92일차(2026.10.06 화)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트 산출물 제출
+
+#### 오후(3시간)
+
+
+</details>
+
+<details>
+<summary><h3>93일차(2026.10.07 수)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+<summary><h3>94일차(2026.10.08 목)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+<summary><h3>95일차(2026.10.12 월)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
 
 </details>
 
 
+</details>
+
+
+</details>
