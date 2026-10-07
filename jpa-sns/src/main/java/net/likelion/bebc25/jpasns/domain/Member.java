@@ -1,9 +1,6 @@
 package net.likelion.bebc25.jpasns.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,14 +15,22 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false, length = 100)
+//    @Column(columnDefinition = "VARCHAR(100) NOT NULL UNIQUE")
     private String email;
 
+    @Column(nullable = false)
     private String password;
 
+    @Column(length = 50)
     private String nickname;
 
+    @Column(nullable = false, length = 20)
     private String role;
 
+    private String profileImage;
+
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     public Member(String email, String password, String nickname) {
@@ -38,5 +43,9 @@ public class Member {
         this.nickname = nickname;
         this.role = role;
         this.createdAt = LocalDateTime.now();
+    }
+
+    public void changeNickname(String nickname){
+        this.nickname = nickname;
     }
 }

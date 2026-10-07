@@ -22,7 +22,7 @@ public class MemberPostTest {
     void setUp(){
         // 회원 등록
         Member member = new Member("test1@test.com", "1234", "테스터1");
-        em.persist(member); // insert
+        em.persist(member); // insert 구문 생성
 
         newMemberId = member.getId();
 
@@ -55,5 +55,7 @@ public class MemberPostTest {
         Post findPost = em.find(Post.class, post.getId());
         assertThat(findPost).isNotNull();
         assertThat(findPost.getContent()).isEqualTo("첫번째 게시글");
+        assertThat(findPost.getMemberId()).isEqualTo(newMemberId);
+        assertThat(findPost.getCreatedAt()).isNotNull();
     }
 }

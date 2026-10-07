@@ -1,12 +1,10 @@
 package net.likelion.bebc25.jpasns.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
@@ -18,16 +16,21 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private Long memberId;
 
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
     private String imageUrl;
 
+    @Column(nullable = false)
     private int likeCount;
 
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
 
     public Post(Long memberId, String content) {
