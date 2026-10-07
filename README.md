@@ -6,7 +6,7 @@
 - [3. Spring MVC 웹 개발 기초](docs/03.spring_web_mvc.md)
 - [4. Spring 데이터 접근 기술과 데이터베이스 모델링](docs/04.spring_database.md)
 - [5. MyBatis와 트랜잭션 관리](docs/05.spring_mybatis.md)
-- [6. Spring Data JPA 기본 - 기본 원리와 엔티티 연관관계](docs/06.spring_data_jpa_core.md)
+- [6. Spring Data JPA 기본 - 핵심 원리와 영속성 컨텍스트](docs/06.spring_data_jpa1_core.md)
 - [7. Spring REST API](docs/07.spring_rest_api.md)
 - [8. Spring Security](docs/08.spring_security.md)
 
