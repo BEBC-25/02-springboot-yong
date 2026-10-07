@@ -13,30 +13,33 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String email;
+    private Long memberId;
 
-    private String password;
+    private String content;
 
-    private String nickname;
+    private String imageUrl;
 
-    private String role;
+    private int likeCount;
 
     private LocalDateTime createdAt;
 
-    public Member(String email, String password, String nickname) {
-        this(email, password, nickname, "USER");
+    private LocalDateTime updatedAt;
+
+    public Post(Long memberId, String content) {
+        this(memberId, content, null);
     }
 
-    public Member(String email, String password, String nickname, String role) {
-        this.email = email;
-        this.password = password;
-        this.nickname = nickname;
-        this.role = role;
+    public Post(Long memberId, String content, String imageUrl) {
+        this.memberId = memberId;
+        this.content = content;
+        this.imageUrl = imageUrl;
+        this.likeCount = 0;
         this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 }
