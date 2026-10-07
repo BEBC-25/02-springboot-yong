@@ -27,7 +27,7 @@ public class Post {
     @Column(nullable = false)
     private int likeCount;
 
-    @Column(nullable = false)
+    @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @Column(nullable = false)
