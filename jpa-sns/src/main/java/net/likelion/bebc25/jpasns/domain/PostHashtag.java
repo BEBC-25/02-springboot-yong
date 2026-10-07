@@ -19,5 +19,8 @@ public class PostHashtag {
     @Column(length = 50, nullable = false)
     private String tagName;
 
-
+    public PostHashtag(Long postId, String tagName) {
+        this.postId = postId;
+        this.tagName = tagName;
+    }
 }

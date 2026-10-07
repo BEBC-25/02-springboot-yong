@@ -10,6 +10,9 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(uniqueConstraints = {
+        @UniqueConstraint(name = "uk_bookmark_member_post", columnNames = {"member_id", "post_id"})
+})
 public class Bookmark {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +26,10 @@ public class Bookmark {
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
+    public Bookmark(Long postId, Long memberId) {
+        this.postId = postId;
+        this.memberId = memberId;
+        this.createdAt = LocalDateTime.now();
+    }
 }

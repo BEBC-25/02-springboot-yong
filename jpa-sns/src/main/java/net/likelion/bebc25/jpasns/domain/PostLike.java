@@ -10,6 +10,9 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(uniqueConstraints = {
+        @UniqueConstraint(name = "uk_post_like_member_post", columnNames = {"member_id", "post_id"})
+})
 public class PostLike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +26,10 @@ public class PostLike {
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
+    public PostLike(Long postId, Long memberId) {
+        this.postId = postId;
+        this.memberId = memberId;
+        this.createdAt = LocalDateTime.now();
+    }
 }

@@ -21,4 +21,14 @@ public class MemberDetail {
     @Column(length = 1, nullable = false)
     private String marketingAgreed;
 
+    public MemberDetail(Long id, String introduction, String address, String marketingAgreed) {
+        this.id = id;
+        this.introduction = introduction;
+        this.address = address;
+        this.marketingAgreed = marketingAgreed;
+    }
+
+    public MemberDetail(Long id, String introduction, String address) {
+        this(id, introduction, address, "N");
+    }
 }
