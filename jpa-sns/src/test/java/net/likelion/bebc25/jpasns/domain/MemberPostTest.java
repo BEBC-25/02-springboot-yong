@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -76,6 +77,17 @@ public class MemberPostTest {
         assertThat(findMember.getAddress().getZipcode()).isEqualTo("12345");
         assertThat(findMember.getAddress().getRoadAddress()).isEqualTo("서울시 강남구 역삼동1");
         assertThat(findMember.getAddress().getDetailAddress()).isEqualTo("101-202");
+
+    }
+
+    @Test
+    @DisplayName("BaseTimeEntity 상속 동작 확인")
+    void baseTimeAuditing(){
+        Member findMember = em.find(Member.class, newMemberId);
+
+        assertThat(findMember.getCreatedAt()).isNotNull();
+        assertThat(findMember.getUpdatedAt()).isNotNull();
+
 
     }
 }

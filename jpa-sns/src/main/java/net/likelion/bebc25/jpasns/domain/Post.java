@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import net.likelion.bebc25.jpasns.common.entity.BaseTimeEntity;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Post {
+public class Post extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,12 +28,6 @@ public class Post {
     @Column(nullable = false)
     private int likeCount;
 
-    @Column(updatable = false, nullable = false)
-    private LocalDateTime createdAt;
-
-    @Column(nullable = false)
-    private LocalDateTime updatedAt;
-
     public Post(Long memberId, String content) {
         this(memberId, content, null);
     }
@@ -42,7 +37,5 @@ public class Post {
         this.content = content;
         this.imageUrl = imageUrl;
         this.likeCount = 0;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
     }
 }
