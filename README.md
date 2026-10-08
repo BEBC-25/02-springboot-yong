@@ -7,7 +7,7 @@
 - [4. Spring 데이터 접근 기술과 데이터베이스 모델링](docs/04.spring_database.md)
 - [5. MyBatis와 트랜잭션 관리](docs/05.spring_mybatis.md)
 - [6. Spring Data JPA 기본 - 핵심 원리와 영속성 컨텍스트](docs/06.spring_data_jpa1_core.md)
-- [6. Spring Data JPA 매핑 - 고급 매핑과 연관관계 고도화](docs/06.spring_data_jpa1_mapping.md)
+- [6. Spring Data JPA 매핑 - 고급 매핑과 연관관계 고도화](docs/06.spring_data_jpa2_mapping.md)
 - [7. Spring REST API](docs/07.spring_rest_api.md)
 - [8. Spring Security](docs/08.spring_security.md)
 
