@@ -30,7 +30,7 @@ public class CommentTest {
         this.newMemberId = member.getId(); // 새로 등록된 회원 id
 
         // 2. 게시글 등록
-        Post post = new Post(newMemberId, "멍멍");
+        Post post = new Post(member, "멍멍");
         em.persist(post); // insert 쿼리문이 실행되어 게시글이 등록됨
         this.newPostId = post.getId(); // 새로 등록된 게시글 id
 

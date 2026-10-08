@@ -17,8 +17,9 @@ public class Post extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long memberId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
@@ -28,12 +29,12 @@ public class Post extends BaseTimeEntity {
     @Column(nullable = false)
     private int likeCount;
 
-    public Post(Long memberId, String content) {
-        this(memberId, content, null);
+    public Post(Member member, String content) {
+        this(member, content, null);
     }
 
-    public Post(Long memberId, String content, String imageUrl) {
-        this.memberId = memberId;
+    public Post(Member member, String content, String imageUrl) {
+        this.member = member;
         this.content = content;
         this.imageUrl = imageUrl;
         this.likeCount = 0;
