@@ -37,7 +37,7 @@ public class MemberPostTest {
 
         assertThat(findMember).isNotNull();
         assertThat(findMember.getEmail()).isEqualTo("test1@test.com");
-        assertThat(findMember.getRole()).isEqualTo("USER");
+        assertThat(findMember.getRole()).isEqualTo(Role.USER);
         assertThat(findMember.getId()).isEqualTo(newMemberId);
     }
 
@@ -57,5 +57,25 @@ public class MemberPostTest {
         assertThat(findPost.getContent()).isEqualTo("첫번째 게시글");
         assertThat(findPost.getMemberId()).isEqualTo(newMemberId);
         assertThat(findPost.getCreatedAt()).isNotNull();
+    }
+
+    @Test
+    @DisplayName("임베디드 주소 값 타입 매핑 확인")
+    void memberDetailAddressMapping(){
+        Address address = new Address("12345", "서울시 강남구 역삼동1", "101-202");
+        MemberDetail memberDetail = new MemberDetail(newMemberId, "안녕하세요", address);
+
+        em.persist(memberDetail);
+
+        em.flush();
+        em.clear();
+
+        MemberDetail findMember = em.find(MemberDetail.class, memberDetail.getId());
+
+        assertThat(findMember).isNotNull();
+        assertThat(findMember.getAddress().getZipcode()).isEqualTo("12345");
+        assertThat(findMember.getAddress().getRoadAddress()).isEqualTo("서울시 강남구 역삼동1");
+        assertThat(findMember.getAddress().getDetailAddress()).isEqualTo("101-202");
+
     }
 }

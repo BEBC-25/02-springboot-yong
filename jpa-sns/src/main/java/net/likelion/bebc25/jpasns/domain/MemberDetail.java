@@ -10,25 +10,25 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberDetail {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(columnDefinition = "TEXT")
     private String introduction;
 
-    private String address;
+    @Embedded
+    private Address address;
 
     @Column(length = 1, nullable = false)
     private String marketingAgreed;
 
-    public MemberDetail(Long id, String introduction, String address, String marketingAgreed) {
+    public MemberDetail(Long id, String introduction, Address address, String marketingAgreed) {
         this.id = id;
         this.introduction = introduction;
         this.address = address;
         this.marketingAgreed = marketingAgreed;
     }
 
-    public MemberDetail(Long id, String introduction, String address) {
+    public MemberDetail(Long id, String introduction, Address address) {
         this(id, introduction, address, "N");
     }
 }

@@ -66,6 +66,11 @@ public class CommentTest {
     void read(){
         Comment findComment = em.find(Comment.class, newCommentId);
 
+        // 영속성 컨텍스트의 1차 캐시값에서 즉시 반환되며 select 쿼리를 실행하지 않음
+        Comment findComment2 = em.find(Comment.class, newCommentId);
+
+        assertThat(findComment).isSameAs(findComment2); // 동일한 주소를 가지고 있는 객체인지 여부(==)
+
         assertThat(findComment).isNotNull();
         assertThat(findComment.getContent()).isEqualTo("댓글1");
         assertThat(findComment.getMemberId()).isEqualTo(newMemberId);
@@ -76,6 +81,9 @@ public class CommentTest {
     @DisplayName("댓글 수정")
     void update(){
         Comment targetComment = em.find(Comment.class, newCommentId);
+
+        // 준영속 상태로 엔티티 변환
+//        em.detach(targetComment);
 
         // 엔티티의 속성이 수정되면 update 쿼리가 생성
         // 실행은 바로 되지 않고 버퍼에 저장되고 커밋 직전에 실행됨(쓰기 지연)
@@ -91,6 +99,23 @@ public class CommentTest {
     @Test
     @DisplayName("댓글 삭제")
     void delete(){
+        Comment targetComment = em.find(Comment.class, newCommentId);
+        em.remove(targetComment); // delete 쿼리문 생성해서 쓰기 지연 SQL 버퍼에 저장
 
+        em.flush();
+        em.clear();
+
+        Comment findComment = em.find(Comment.class, newCommentId);
+        assertThat(findComment).isNull();
     }
 }
+
+
+
+
+
+
+
+
+
+

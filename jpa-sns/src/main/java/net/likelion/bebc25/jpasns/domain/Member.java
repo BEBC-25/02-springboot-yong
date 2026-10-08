@@ -26,7 +26,8 @@ public class Member {
     private String nickname;
 
     @Column(nullable = false, length = 20)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     private String profileImage;
 
@@ -34,10 +35,10 @@ public class Member {
     private LocalDateTime createdAt;
 
     public Member(String email, String password, String nickname) {
-        this(email, password, nickname, "USER");
+        this(email, password, nickname, Role.USER);
     }
 
-    public Member(String email, String password, String nickname, String role) {
+    public Member(String email, String password, String nickname, Role role) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
