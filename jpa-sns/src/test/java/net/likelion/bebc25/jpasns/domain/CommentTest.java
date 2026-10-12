@@ -138,6 +138,7 @@ public class CommentTest {
         assertThat(findPost.getComments())
                 .extracting(Comment::getContent) // 컬랙션 내 엔티티들의 특정 필드를 추출
                 .containsExactly("댓글1", "댓글2", "댓글3"); // 추출된 값들이 내용과 순서가 일치하는지 확인
+        em.flush();
         em.clear();
 
         // 댓글 조회시 게시글 확인(정방향 N -> 1)
@@ -147,6 +148,23 @@ public class CommentTest {
         assertThat(findComment.getPost().getMember().getNickname()).isEqualTo("하루");
         assertThat(findComment.getPost().getContent()).isEqualTo("멍멍");
         assertThat(findComment.getMember().getEmail()).isEqualTo("haru@test.com");
+    }
+
+    @Test
+    @DisplayName("Post를 통한 Comment 삭제")
+    void postCommentBiDirectionalMappingDelete(){
+        Post findPost = em.find(Post.class, newPostId);
+        assertThat(findPost).isNotNull();
+        assertThat(findPost.getComments()).hasSize(1);
+
+        // 댓글 삭제
+        findPost.getComments().removeFirst();
+        em.flush();
+        em.clear();
+
+        Post findPost2 = em.find(Post.class, findPost.getId());
+        assertThat(findPost2).isNotNull();
+        assertThat(findPost2.getComments()).hasSize(0);
     }
 }
 
