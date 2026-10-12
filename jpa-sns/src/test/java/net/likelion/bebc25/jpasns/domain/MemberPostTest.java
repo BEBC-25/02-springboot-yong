@@ -88,7 +88,6 @@ public class MemberPostTest {
 
     @Test
     @DisplayName("BaseTimeEntity 상속 동작 확인")
-    @Commit
     void baseTimeAuditing(){
         Member findMember = em.find(Member.class, newMemberId);
 

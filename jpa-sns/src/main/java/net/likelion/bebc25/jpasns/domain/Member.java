@@ -32,7 +32,7 @@ public class Member extends BaseTimeEntity {
 
     private String profileImage;
 
-//    private List<Post> post;
+//    private List<Post> posts;
 
     public Member(String email, String password, String nickname) {
         this(email, password, nickname, Role.USER);

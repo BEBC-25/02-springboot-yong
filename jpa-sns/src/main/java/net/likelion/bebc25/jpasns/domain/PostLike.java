@@ -19,14 +19,16 @@ public class PostLike extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long postId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(nullable = false)
+    private Post post;
 
-    @Column(nullable = false)
-    private Long memberId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(nullable = false)
+    private Member member;
 
-    public PostLike(Long postId, Long memberId) {
-        this.postId = postId;
-        this.memberId = memberId;
+    public PostLike(Post post, Member member) {
+        this.post = post;
+        this.member = member;
     }
 }

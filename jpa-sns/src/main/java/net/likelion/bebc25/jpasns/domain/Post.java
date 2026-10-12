@@ -8,6 +8,7 @@ import net.likelion.bebc25.jpasns.common.entity.BaseTimeEntity;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,6 +29,9 @@ public class Post extends BaseTimeEntity {
 
     @Column(nullable = false)
     private int likeCount;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments;
 
     public Post(Member member, String content) {
         this(member, content, null);

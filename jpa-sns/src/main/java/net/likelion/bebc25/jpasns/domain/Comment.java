@@ -11,6 +11,7 @@ import org.aspectj.lang.annotation.control.CodeGenerationHint;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "comment")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Comment extends BaseTimeEntity {
@@ -18,19 +19,21 @@ public class Comment extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long postId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "post_id", nullable = false)
+    private Post post;
 
-    @Column(nullable = false)
-    private Long memberId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
-    public Comment(String content, Long postId, Long memberId) {
+    public Comment(String content, Post post, Member member) {
         this.content = content;
-        this.postId = postId;
-        this.memberId = memberId;
+        this.post = post;
+        this.member = member;
     }
 
     // 댓글 수정에 사용될 비즈니스 메서드

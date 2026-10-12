@@ -35,7 +35,7 @@ public class CommentTest {
         this.newPostId = post.getId(); // 새로 등록된 게시글 id
 
         // 3. 댓글 등록
-        Comment comment = new Comment("댓글1", newPostId, newMemberId);
+        Comment comment = new Comment("댓글1", post, member);
         em.persist(comment); // insert 쿼리문이 실행되어 댓글이 등록됨
         this.newCommentId = comment.getId(); // 새로 등록된 댓글 id
 
@@ -46,7 +46,10 @@ public class CommentTest {
     @DisplayName("댓글 등록")
 //    @Commit // 테스트 종료 후 롤백 시키지 않고 커밋함
     void create(){
-        Comment comment = new Comment("댓글2", newPostId, newMemberId);
+        Post findPost = em.find(Post.class, newPostId);
+        Member fineMember = em.find(Member.class, newMemberId);
+
+        Comment comment = new Comment("댓글2", findPost, fineMember);
         em.persist(comment); // insert 쿼리문이 실행되어 댓글이 등록됨
 
         em.clear(); // 캐시를 비우기
@@ -57,7 +60,8 @@ public class CommentTest {
         // 조회한 댓글 정보를 이용해서 댓글 등록 검증
         assertThat(findComment).isNotNull();
         assertThat(findComment.getId()).isEqualTo(comment.getId());
-        assertThat(findComment.getPostId()).isEqualTo(newPostId);
+        assertThat(findComment.getPost().getId()).isEqualTo(newPostId);
+        assertThat(findComment.getMember().getNickname()).isEqualTo("하루"); // 댓글의 작성자가 "하루" 가 맞나?
         assertThat(findComment.getCreatedAt()).isNotNull();
     }
 
@@ -73,8 +77,8 @@ public class CommentTest {
 
         assertThat(findComment).isNotNull();
         assertThat(findComment.getContent()).isEqualTo("댓글1");
-        assertThat(findComment.getMemberId()).isEqualTo(newMemberId);
-        assertThat(findComment.getPostId()).isEqualTo(newPostId);
+        assertThat(findComment.getMember().getId()).isEqualTo(newMemberId);
+        assertThat(findComment.getPost().getId()).isEqualTo(newPostId);
     }
 
     @Test
