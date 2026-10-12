@@ -9,8 +9,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberDetail {
+
     @Id
+    @Column(name = "member_id")
     private Long id;
+
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @Column(columnDefinition = "TEXT")
     private String introduction;
@@ -21,14 +28,14 @@ public class MemberDetail {
     @Column(length = 1, nullable = false)
     private String marketingAgreed;
 
-    public MemberDetail(Long id, String introduction, Address address, String marketingAgreed) {
-        this.id = id;
+    public MemberDetail(Member member, String introduction, Address address, String marketingAgreed) {
+        this.member = member;
         this.introduction = introduction;
         this.address = address;
         this.marketingAgreed = marketingAgreed;
     }
 
-    public MemberDetail(Long id, String introduction, Address address) {
-        this(id, introduction, address, "N");
+    public MemberDetail(Member member, String introduction, Address address) {
+        this(member, introduction, address, "N");
     }
 }
