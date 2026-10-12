@@ -35,7 +35,8 @@ public class CommentTest {
         this.newPostId = post.getId(); // 새로 등록된 게시글 id
 
         // 3. 댓글 등록
-        Comment comment = new Comment("댓글1", post, member);
+        Comment comment = new Comment("댓글1", member);
+        comment.assignPost(post);
         em.persist(comment); // insert 쿼리문이 실행되어 댓글이 등록됨
         this.newCommentId = comment.getId(); // 새로 등록된 댓글 id
 
@@ -49,7 +50,8 @@ public class CommentTest {
         Post findPost = em.find(Post.class, newPostId);
         Member fineMember = em.find(Member.class, newMemberId);
 
-        Comment comment = new Comment("댓글2", findPost, fineMember);
+        Comment comment = new Comment("댓글2", fineMember);
+        comment.assignPost(findPost);
         em.persist(comment); // insert 쿼리문이 실행되어 댓글이 등록됨
 
         em.clear(); // 캐시를 비우기
@@ -111,6 +113,40 @@ public class CommentTest {
 
         Comment findComment = em.find(Comment.class, newCommentId);
         assertThat(findComment).isNull();
+    }
+
+    @Test
+    @DisplayName("게시글-댓글 양방향 연관관계 매핑")
+    void postCommentBiDirectionalMapping(){
+        // 사용자, 게시글 조회
+        Member member = em.find(Member.class, newMemberId);
+        Post post = em.find(Post.class, newPostId);
+
+        Comment comment2 = new Comment("댓글2", member);
+        Comment comment3 = new Comment("댓글3", member);
+
+        post.addComment(comment2);
+        post.addComment(comment3);
+
+        em.flush();
+        em.clear();
+
+        // 게시글 조회시 댓글 목록 확인(역방향 1 -> N)
+        Post findPost = em.find(Post.class, newPostId);
+        assertThat(findPost).isNotNull();
+        assertThat(findPost.getComments()).hasSize(3);
+        assertThat(findPost.getComments())
+                .extracting(Comment::getContent) // 컬랙션 내 엔티티들의 특정 필드를 추출
+                .containsExactly("댓글1", "댓글2", "댓글3"); // 추출된 값들이 내용과 순서가 일치하는지 확인
+        em.clear();
+
+        // 댓글 조회시 게시글 확인(정방향 N -> 1)
+        Comment findComment = em.find(Comment.class, comment2.getId());
+        assertThat(findComment).isNotNull();
+        assertThat(findComment.getPost().getId()).isEqualTo(post.getId());
+        assertThat(findComment.getPost().getMember().getNickname()).isEqualTo("하루");
+        assertThat(findComment.getPost().getContent()).isEqualTo("멍멍");
+        assertThat(findComment.getMember().getEmail()).isEqualTo("haru@test.com");
     }
 }
 

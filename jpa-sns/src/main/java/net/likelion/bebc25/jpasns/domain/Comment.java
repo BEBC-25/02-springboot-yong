@@ -30,10 +30,14 @@ public class Comment extends BaseTimeEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
-    public Comment(String content, Post post, Member member) {
+    public Comment(String content, Member member) {
         this.content = content;
-        this.post = post;
         this.member = member;
+    }
+
+    // 댓글과 연관된 게시글을 지정
+    public void assignPost(Post post){
+        this.post = post;
     }
 
     // 댓글 수정에 사용될 비즈니스 메서드

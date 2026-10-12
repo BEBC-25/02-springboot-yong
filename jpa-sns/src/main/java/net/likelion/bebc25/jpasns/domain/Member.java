@@ -34,6 +34,8 @@ public class Member extends BaseTimeEntity {
 
 //    private List<Post> posts;
 
+//    private List<PostLike> postLikes;
+
     public Member(String email, String password, String nickname) {
         this(email, password, nickname, Role.USER);
     }

@@ -8,6 +8,7 @@ import net.likelion.bebc25.jpasns.common.entity.BaseTimeEntity;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,7 +32,7 @@ public class Post extends BaseTimeEntity {
     private int likeCount;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     public Post(Member member, String content) {
         this(member, content, null);
@@ -42,5 +43,11 @@ public class Post extends BaseTimeEntity {
         this.content = content;
         this.imageUrl = imageUrl;
         this.likeCount = 0;
+    }
+
+    // 양방향 객체 탐색이 가능하도록 지정하는 편의 메서드
+    public void addComment(Comment comment){
+        this.comments.add(comment);
+        comment.assignPost(this);
     }
 }
