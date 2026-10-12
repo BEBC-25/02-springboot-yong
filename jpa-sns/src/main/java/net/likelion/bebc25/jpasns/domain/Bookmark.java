@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import net.likelion.bebc25.jpasns.common.entity.BaseTimeEntity;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = "uk_bookmark_member_post", columnNames = {"member_id", "post_id"})
 })
-public class Bookmark {
+public class Bookmark extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,12 +25,8 @@ public class Bookmark {
     @Column(nullable = false)
     private Long memberId;
 
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
-
     public Bookmark(Long postId, Long memberId) {
         this.postId = postId;
         this.memberId = memberId;
-        this.createdAt = LocalDateTime.now();
     }
 }

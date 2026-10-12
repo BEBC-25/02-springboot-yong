@@ -1,5 +1,6 @@
 package net.likelion.bebc25.jpasns.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -8,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -46,7 +50,8 @@ public class MemberPostTest {
     @DisplayName("게시글 등록 및 조회")
     void postSaveAndFind(){
         // 1. 게시글 등록
-        Post post = new Post(newMemberId, "첫번째 게시글");
+        Member member = em.find(Member.class, newMemberId);
+        Post post = new Post(member, "첫번째 게시글");
         em.persist(post);
 
         em.flush();
@@ -56,7 +61,8 @@ public class MemberPostTest {
         Post findPost = em.find(Post.class, post.getId());
         assertThat(findPost).isNotNull();
         assertThat(findPost.getContent()).isEqualTo("첫번째 게시글");
-        assertThat(findPost.getMemberId()).isEqualTo(newMemberId);
+        assertThat(findPost.getMember().getId()).isEqualTo(newMemberId);
+        assertThat(findPost.getMember().getNickname()).isEqualTo("테스터1");
         assertThat(findPost.getCreatedAt()).isNotNull();
     }
 
@@ -82,12 +88,27 @@ public class MemberPostTest {
 
     @Test
     @DisplayName("BaseTimeEntity 상속 동작 확인")
+    @Commit
     void baseTimeAuditing(){
         Member findMember = em.find(Member.class, newMemberId);
 
-        assertThat(findMember.getCreatedAt()).isNotNull();
-        assertThat(findMember.getUpdatedAt()).isNotNull();
+        LocalDateTime createdAt = findMember.getCreatedAt(); // 등록일
+        LocalDateTime updatedAt = findMember.getCreatedAt(); // 수정일
 
+        assertThat(createdAt).isNotNull(); // 등록일 주입 여부
+        assertThat(updatedAt).isNotNull(); // 수정일 주입 여부
+        assertThat(createdAt).isEqualTo(updatedAt); // 등록일과 수정일이 같은지 여부
 
+        findMember.changeNickname("테스터2"); // update 쿼리 생성(버퍼)
+
+        em.flush(); // update 실행
+        em.clear();
+
+        Member updatedMember = em.find(Member.class, newMemberId);
+
+        assertThat(updatedMember).isNotNull();
+        assertThat(updatedMember.getNickname()).isEqualTo("테스터2"); // 수정된 닉네임 확인
+        assertThat(updatedMember.getCreatedAt()).isEqualTo(createdAt); // 등록일은 수정되지 않음
+        assertThat(updatedMember.getUpdatedAt()).isNotEqualTo(updatedAt); // 수정일은 수정됨
     }
 }
