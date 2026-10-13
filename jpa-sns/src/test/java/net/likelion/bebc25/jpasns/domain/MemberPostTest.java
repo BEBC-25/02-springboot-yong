@@ -63,6 +63,8 @@ public class MemberPostTest {
         assertThat(findPost).isNotNull();
         assertThat(findPost.getContent()).isEqualTo("첫번째 게시글");
         assertThat(findPost.getMember().getId()).isEqualTo(newMemberId);
+
+        // 실제 member 테이블에서 select를 수행한 후 Member 객체로 주입
         assertThat(findPost.getMember().getNickname()).isEqualTo("테스터1");
         assertThat(findPost.getCreatedAt()).isNotNull();
     }
