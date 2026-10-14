@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @SpringBootTest
 @Transactional
@@ -35,5 +36,27 @@ public class MemberServiceTest {
         assertThat(findMember).isNotNull();
         assertThat(findMember.nickname()).isEqualTo(request.nickname());
         assertThat(findMember.role()).isEqualTo(Role.USER.name());
+    }
+
+    @Test
+    @DisplayName("이메일 중복 가입시 예외 발생")
+    void duplicateEmailException(){
+        MemberDto.CreateRequest request1 = new MemberDto.CreateRequest(
+                "haru@lion.com",
+                "1234",
+                "하루"
+        );
+        MemberDto.CreateRequest request2 = new MemberDto.CreateRequest(
+                "haru@lion.com",
+                "5678",
+                "나무"
+        );
+
+        memberService.signUp(request1);
+
+        assertThatThrownBy(() -> memberService.signUp(request2))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("사용중");
+
     }
 }
