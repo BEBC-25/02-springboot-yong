@@ -14,8 +14,9 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     // 회원 가입
+    @Transactional // 쓰기 트렌젝션을 적용
     public MemberDto.Response signUp(MemberDto.CreateRequest request){
-        if(memberRepository.existsByEmail(request.nickname())){
+        if(memberRepository.existsByEmail(request.email())){
             throw new IllegalArgumentException("사용중인 이메일입니다. email: " + request.email());
         }
         Member member = memberRepository.save(request.toEntity());
