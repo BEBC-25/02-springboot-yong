@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest
 @Transactional
 public class PostServiceTest {
@@ -36,8 +38,24 @@ public class PostServiceTest {
         PostDto.CreateRequest postRequest = new PostDto.CreateRequest("멍멍");
         PostDto.Response postResponse = postService.createPost(memberId, postRequest);
 
-        postService.createComment(postResponse.id(), memberId, new CommentDto.CreateRequest("왈왈"));
+        postService.addComment(postResponse.id(), memberId, new CommentDto.CreateRequest("왈왈"));
+        postService.addComment(postResponse.id(), memberId, new CommentDto.CreateRequest("야옹"));
 
+        PostDto.DetailResponse response = postService.getPost(postResponse.id());
+
+        // 게시글 내용 비교
+        assertThat(response.content()).isEqualTo("멍멍");
+        // 작성자 닉네임 비교
+        assertThat(response.authorNickname()).isEqualTo("하루");
+
+        // 코멘트가 2개인지 확인
+        assertThat(response.comments()).hasSize(2);
+
+        // 첫번째 코멘트의 id가 1인지 확인
+        assertThat(response.comments().getFirst().id()).isEqualTo(1);
+
+        // 두번째 코멘트의 내용이 야옹인지 확인
+        assertThat(response.comments().get(1).content()).isEqualTo("야옹");
     }
 
 }
