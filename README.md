@@ -10,6 +10,7 @@
   - [6.1 핵심 원리와 영속성 컨텍스트](docs/06.spring_data_jpa1_core.md)
   - [6.2 고급 매핑과 연관관계 고도화](docs/06.spring_data_jpa2_mapping.md)
   - [6.3 도메인 완성 및 계층 아키텍처 구축](docs/06.spring_data_jpa3_domain.md)
+  - [6.4 실무 쿼리 성능 최적화와 QueryDSL](docs/06.spring_data_jpa4_query.md)
 - [7. Spring REST API](docs/07.spring_rest_api.md)
 - [8. Spring Security](docs/08.spring_security.md)
 
