@@ -1,16 +1,15 @@
 package net.likelion.bebc25.jpasns.service;
 
-import net.likelion.bebc25.jpasns.domain.Role;
-import net.likelion.bebc25.jpasns.dto.MemberDto;
-import org.junit.jupiter.api.Disabled;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import net.likelion.bebc25.jpasns.domain.Role;
+import net.likelion.bebc25.jpasns.dto.MemberDto;
 
 @SpringBootTest
 @Transactional
@@ -24,9 +23,9 @@ public class MemberServiceTest {
     @Transactional
     void signUpAndGetMember(){
         MemberDto.CreateRequest request = new MemberDto.CreateRequest(
-        "haru@lion.com",
-        "1234",
-        "하루"
+                  "haru@lion.com",
+                  "1234",
+                  "하루"
         );
 
         MemberDto.Response response = memberService.signUp(request);
