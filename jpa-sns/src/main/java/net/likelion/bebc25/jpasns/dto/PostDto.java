@@ -65,4 +65,11 @@ public class PostDto {
             );
         }
     }
+
+    public record SummaryResponse(
+            Long postId,
+            String memberNickname,
+            String content,
+            int likeCount
+    ){}
 }

@@ -4,6 +4,10 @@ import lombok.RequiredArgsConstructor;
 import net.likelion.bebc25.jpasns.dto.CommentDto;
 import net.likelion.bebc25.jpasns.dto.PostDto;
 import net.likelion.bebc25.jpasns.service.PostService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,12 +32,15 @@ public class PostController {
 
     // 게시글 목록 조회
     @GetMapping
-    public ResponseEntity<List<PostDto.Response>> getPosts(
+    public ResponseEntity<Page<PostDto.Response>> getPosts(
             @RequestParam(required = false) Long memberId,
-            @RequestParam(required = false) String keyword
+            @RequestParam(required = false) String keyword,
+            @PageableDefault(page = 0, size = 5, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
     ){
         // memberId 존재 여부에 따라서 전체 게시글 목록을 조회하거나 지정한 회원의 게시글만 조회하거나 분기 처리
-        List<PostDto.Response> response = postService.getPosts(memberId, keyword);
+        Page<PostDto.Response> response = postService.getPosts(memberId, keyword, pageable);
+
+//        Page<PostDto.Response> response = postService.getPosts(pageable);
         return ResponseEntity.ok(response);
     }
 

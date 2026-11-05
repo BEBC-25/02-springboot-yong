@@ -1,6 +1,7 @@
 package net.likelion.bebc25.jpasns.service;
 
 import net.likelion.bebc25.jpasns.domain.Member;
+import net.likelion.bebc25.jpasns.domain.Post;
 import net.likelion.bebc25.jpasns.dto.CommentDto;
 import net.likelion.bebc25.jpasns.dto.PostDto;
 import net.likelion.bebc25.jpasns.repository.MemberRepository;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -56,6 +59,8 @@ public class PostServiceTest {
 
         // 두번째 코멘트의 내용이 야옹인지 확인
         assertThat(response.comments().get(1).content()).isEqualTo("야옹");
+
+
     }
 
 }

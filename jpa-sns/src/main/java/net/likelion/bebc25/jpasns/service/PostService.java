@@ -9,6 +9,8 @@ import net.likelion.bebc25.jpasns.dto.PostDto;
 import net.likelion.bebc25.jpasns.repository.CommentRepository;
 import net.likelion.bebc25.jpasns.repository.MemberRepository;
 import net.likelion.bebc25.jpasns.repository.PostRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,8 +36,14 @@ public class PostService {
     }
 
     // 전체 게시글 목록 조회
-    public List<PostDto.Response> getPosts(Long memberId, String keyword){
-        List<Post> posts;
+    public Page<PostDto.Response> getPosts(Pageable pageable){
+        Page<Post> posts = postRepository.findAll(pageable);
+        return posts.map(PostDto.Response::from);
+    }
+
+    // 전체 게시글 목록 조회(검색 조건 추가)
+    public Page<PostDto.Response> getPosts(Long memberId, String keyword, Pageable pageable){
+        Page<Post> posts;
 
         if(memberId != null){ // memberId가 있을 경우
             // 회원 존재 여부를 먼저 확인한 뒤 해당 회원의 게시글 목록을 조회하여 DTO로 변환하여 반환
@@ -44,21 +52,22 @@ public class PostService {
             }
 
             if(keyword != null){
-                posts = postRepository.findByMember_IdAndContentContainingOrderByCreatedAtDesc(memberId, keyword);
+                // 쿼리 메서드 호출
+//                posts = postRepository.findByMember_IdAndContentContainingOrderByCreatedAtDesc(memberId, keyword);
+                // Query 어노테이션 기반의 JPQL 사용
+                posts = postRepository.findByMemberAndKeyword(memberId, keyword, pageable);
             }else{
-                posts = postRepository.findByMember_IdOrderByCreatedAtDesc(memberId);
+                posts = postRepository.findByMember_IdOrderByCreatedAtDesc(memberId, pageable);
             }
         }else{ // memberId가 없을 경우
             if(keyword != null){
-                posts = postRepository.findByContentContainingOrderByCreatedAtDesc(keyword);
+                posts = postRepository.findByContentContainingOrderByCreatedAtDesc(keyword, pageable);
             }else{
-                posts = postRepository.findByOrderByCreatedAtDesc();
+                posts = postRepository.findByOrderByCreatedAtDesc(pageable);
             }
         }
 
-        return posts.stream()
-                .map(PostDto.Response::from)
-                .toList();
+        return posts.map(PostDto.Response::from);
     }
 
     // 게시글 상세 조회
