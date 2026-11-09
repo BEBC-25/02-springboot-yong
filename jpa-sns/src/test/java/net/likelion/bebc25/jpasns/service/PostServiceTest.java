@@ -54,15 +54,14 @@ public class PostServiceTest {
         // 코멘트가 2개인지 확인
         assertThat(response.comments()).hasSize(2);
 
-        // 첫번째 코멘트의 id가 1인지 확인
-        assertThat(response.comments().getFirst().id()).isEqualTo(1);
+        System.out.println(response.comments());
+
+        // 첫번째 코멘트의 내용이 왈왈인지 확인
+        assertThat(response.comments().getFirst().content()).isEqualTo("왈왈");
 
         // 두번째 코멘트의 내용이 야옹인지 확인
         assertThat(response.comments().get(1).content()).isEqualTo("야옹");
-
-
     }
-
 }
 
 
